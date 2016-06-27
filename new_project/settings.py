@@ -120,3 +120,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+if 'heroku' in os.environ:
+    import dj_database_url
+    DATABASES['default'] = dj_database_url.config()
